@@ -1,8 +1,12 @@
 import pkg from './package'
-
+const router = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/website/'
+  }
+} : {}
 export default {
+  ...router,
   env: {
-    publicPath: '/website/_nuxt/',
     baseUrl: process.env.BASE_URL || '',
     companyName: 'Long Timber Brewing Company',
     address: {
